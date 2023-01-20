@@ -7,11 +7,15 @@ include 'App/modele/M_exemplaire.php';
  * @author Loic LOG
  */
 switch ($action) {
-    case 'voirJeux' :
+    case 'voirJeux':
         $categorie = filter_input(INPUT_GET, 'categorie');
-        $lesJeux = M_Exemplaire::trouveLesJeuxDeCategorie($categorie);
+        if ($categorie) {
+            $lesJeux = M_Exemplaire::trouveLesJeuxDeCategorie($categorie);
+        } else {
+            $lesJeux = M_Exemplaire::trouveTousLesJeux();
+        }
         break;
-    case 'ajouterAuPanier' :
+    case 'ajouterAuPanier':
         $idJeu = filter_input(INPUT_GET, 'jeu');
         $categorie = filter_input(INPUT_GET, 'categorie');
         if (!ajouterAuPanier($idJeu)) {
@@ -19,7 +23,11 @@ switch ($action) {
         } else {
             afficheMessage("Ce jeu a été ajouté");
         }
-        $lesJeux = M_Exemplaire::trouveLesJeuxDeCategorie($categorie);
+        if ($categorie) {
+            $lesJeux = M_Exemplaire::trouveLesJeuxDeCategorie($categorie);
+        } else {
+            $lesJeux = M_Exemplaire::trouveTousLesJeux();
+        }
         break;
     default:
         $lesJeux = [];

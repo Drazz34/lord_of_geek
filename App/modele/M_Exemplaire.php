@@ -41,4 +41,16 @@ class M_Exemplaire {
         return $lesProduits;
     }
 
+       /**
+     * Retourne tous les jeux sous forme d'un tableau associatif
+     *
+     * @return le tableau associatif des jeux
+     */
+    public static function trouveTousLesJeux() {
+        $req = "SELECT * FROM exemplaires";
+        $res = AccesDonnees::query($req);
+        $lesLignes = $res->fetchAll();
+        return $lesLignes;
+    }
+
 }
