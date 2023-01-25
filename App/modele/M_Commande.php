@@ -21,9 +21,10 @@ class M_Commande {
      * @param $listJeux
 
      */
-    public static function creerCommande($nom, $rue, $cp, $ville, $mail, $listJeux) {
-        $req = "insert into commandes(nomPrenomClient, adresseRueClient, cpClient, villeClient, mailClient) values ('$nom','$rue','$cp','$ville','$mail')";
+    public static function creerCommande($nom, $prenom, $rue, $cp, $ville, $mail, $listJeux) {
+        $req = "insert into client(nomPrenom, adresseRue, cp, ville, mail) values ('$nom','$rue','$cp','$ville','$mail')";
         $res = AccesDonnees::exec($req);
+        // $req2 = "INSERT INTO commandes("
         $idCommande = AccesDonnees::getPdo()->lastInsertId();
         foreach ($listJeux as $jeu) {
             $req = "insert into lignes_commande(commande_id, exemplaire_id) values ('$idCommande','$jeu')";

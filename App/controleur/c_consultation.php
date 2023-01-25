@@ -23,6 +23,7 @@ switch ($action) {
         } else {
             afficheMessage("Ce jeu a été ajouté");
         }
+        // Afficher tous les jeux
         if ($categorie) {
             $lesJeux = M_Exemplaire::trouveLesJeuxDeCategorie($categorie);
         } else {

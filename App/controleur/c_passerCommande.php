@@ -11,6 +11,7 @@ switch ($action) {
         $n = nbJeuxDuPanier();
         if ($n > 0) {
             $nom = '';
+            $prenom = '';
             $rue = '';
             $ville = '';
             $cp = '';
@@ -22,6 +23,7 @@ switch ($action) {
         break;
     case 'confirmerCommande' :
         $nom = filter_input(INPUT_POST, 'nom');
+        $prenom = filter_input(INPUT_POST, 'prenom');
         $rue = filter_input(INPUT_POST, 'rue');
         $ville = filter_input(INPUT_POST, 'ville');
         $cp = filter_input(INPUT_POST, 'cp');
@@ -32,7 +34,7 @@ switch ($action) {
             afficheErreurs($errors);
         } else {
             $lesIdJeu = getLesIdJeuxDuPanier();
-            M_Commande::creerCommande($nom, $rue, $cp, $ville, $mail, $lesIdJeu);
+            M_Commande::creerCommande($nom, $prenom, $rue, $cp, $ville, $mail, $lesIdJeu);
             supprimerPanier();
             afficheMessage("Commande enregistrée");
             $uc = '';
