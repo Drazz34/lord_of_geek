@@ -1,5 +1,5 @@
 <section id="authentification">
-    <form method="POST" action="index.php?uc=authentication&action=loginClient">
+    <form method="POST" action="index.php?uc=authentification&action=loginClient">
         <fieldset>
             <legend>Authentication</legend>
             <p>
@@ -14,5 +14,11 @@
                 <input type="submit" value="Valider" name="valider">
                 <input type="reset" value="Annuler" name="annuler"> 
             </p>
+    </form>
+</section>
+
+<section id="logout">
+    <form action="index.php?uc=authentification&action=logoutClient" method="POST">
+        <input type="submit" value="Se déconnecter" name="deconnexion">
     </form>
 </section>

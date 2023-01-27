@@ -8,7 +8,7 @@ class M_Client {
         };
 
         $pdo = AccesDonnees::getPdo();
-        $stmt = $pdo->prepare('INSERT INTO client(identifiant, mot_de_passe, nom, prenom, adresse_rue, cp, ville, mail) VALUES (:identifiant, :password, :nom, :prenom, :rue, :cp, :ville, :mail)');
+        $stmt = $pdo->prepare('INSERT INTO client(identifiant, mot_de_passe, nom, prenom, adresse_rue, cp, ville, mail) VALUES :identifiant, :password, :nom, :prenom, :rue, :cp, :ville, :mail)');
         $stmt->bindParam(':identifiant', $identifiant);
         $stmt->bindParam(':password', $password);
         $stmt->bindParam(':nom', $nom);
@@ -60,10 +60,10 @@ class M_Client {
         if ($rue == "") {
             $erreurs[] = "Il faut saisir le champ rue";
         }
-        if ($cp == "") {
+        if ($ville == "") {
             $erreurs[] = "Il faut saisir le champ ville";
         }
-        if ($ville == "") {
+        if ($cp == "") {
             $erreurs[] = "Il faut saisir le champ Code postal";
         } else if (!estUnCp($cp)) {
             $erreurs[] = "erreur de code postal";

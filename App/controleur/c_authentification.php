@@ -10,20 +10,10 @@ switch ($action) {
         $client = M_Client::trouverClientParIdentifiantEtMDP($identifiant, $password);
        
         if (!$client) {
-            afficheMessage("Vous devrez être enregistré");
+            afficheMessage("Vous devez vous enregistrer sur la page 'Inscription', merci !");
         } else {
             $_SESSION['client'] = $client;
         }
-
-        if(!empty($_SESSION['redirect'])){
-            $redirect = $_SESSION['redirect'];
-            header('Location: index.php?uc=' . $redirect['us'] . '&action=' . $redirect['action']);
-            die();
-        } else {
-            header('Location: index.php');
-            die();
-        }
-
         break;
 
     case 'logoutClient':

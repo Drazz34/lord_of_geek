@@ -21,7 +21,7 @@ Prototype de Lord Of Geek (LOG)
                     <li><a href="index.php?uc=panier&action=voirPanier"> Voir son panier </a></li>
                     <?php
                         if (empty($clientSession)) {
-                            echo "<li><a href='index.php?uc=authentication'> Login </a></li>";
+                            echo "<li><a href='index.php?uc=authentification&action=loginClient'> Connexion </a></li>";
                             echo "<li><a href='index.php?uc=inscription'> Inscription </a></li>";
                         }
                     ?>
@@ -48,7 +48,7 @@ Prototype de Lord Of Geek (LOG)
                     include ("App/vue/v_commande.php");
                     break;
                 case 'inscription' :
-                    include ("App/vue/v_inscription.php");
+                    include ("App/vue/v_inscription_client.php");
                     break;
                 case 'authentification' :
                     include ("App/vue/v_authentification.php");

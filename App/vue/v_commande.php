@@ -3,7 +3,7 @@
         <fieldset>
             <legend>Commande</legend>
             <p>
-                <label for="nom">Nom</label>
+                <label for="nom">Nom*</label>
                 <input id="nom" type="text" name="nom" value="<?= $nom ?>" size="30" maxlength="45">
             </p>
             <p>

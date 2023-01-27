@@ -2,8 +2,12 @@
 include 'App/modele/M_categorie.php';
 include 'App/modele/M_exemplaire.php';
 
+$categorie = null;
+
+// $m_exemplaire->trouveJeuParId();
+
 /**
- * Controleur pour la consultation des exemplaires
+ * Controleur pour la consultation des exemplaires par catégorie ou tous les jeux
  * @author Loic LOG
  */
 switch ($action) {
@@ -11,8 +15,6 @@ switch ($action) {
         $categorie = filter_input(INPUT_GET, 'categorie');
         if ($categorie) {
             $lesJeux = M_Exemplaire::trouveLesJeuxDeCategorie($categorie);
-        } else {
-            $lesJeux = M_Exemplaire::trouveTousLesJeux();
         }
         break;
     case 'ajouterAuPanier':
@@ -21,17 +23,11 @@ switch ($action) {
         if (!ajouterAuPanier($idJeu)) {
             afficheErreurs(["Ce jeu est déjà dans le panier !!"]);
         } else {
-            afficheMessage("Ce jeu a été ajouté");
-        }
-        // Afficher tous les jeux
-        if ($categorie) {
-            $lesJeux = M_Exemplaire::trouveLesJeuxDeCategorie($categorie);
-        } else {
-            $lesJeux = M_Exemplaire::trouveTousLesJeux();
+            afficheMessage("Ce jeu a été ajouté au panier");
         }
         break;
     default:
-        $lesJeux = [];
+        $lesJeux = M_Exemplaire::trouveTousLesJeux();
         break;
 }
 
