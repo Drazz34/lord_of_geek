@@ -19,16 +19,16 @@
                 <input id="prenom" type="text" name="prenom" maxlength="90">
             </p>
             <p>
-                <label for="ville">Ville</label>
-                <input id="ville" type="text" name="ville" maxlength="45">
+                <label for="rue">Rue</label>
+                <input id="rue" type="text" name="rue" maxlength="255">
             </p>
             <p>
                 <label for="cp">Code postal</label>
                 <input id="cp" type="text" name="cp" size="5" maxlength="5">
             </p>
             <p>
-                <label for="rue">Rue</label>
-                <input id="rue" type="text" name="rue" maxlength="255">
+                <label for="ville">Ville</label>
+                <input id="ville" type="text" name="ville" maxlength="45">
             </p>
             <p>
                 <label for="mail">Email </label>

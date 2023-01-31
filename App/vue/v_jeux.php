@@ -8,7 +8,7 @@
                 $libCategorie = $uneCategorie['nom'];
             ?>
                 <li>
-                    <a href=index.php?uc=visite&categorie=<?= $idCategorie ?>&action=voirJeux><?= $libCategorie ?></a>
+                    <a href="index.php?uc=visite&categorie=<?= $idCategorie ?>&action=voirJeux"><?= $libCategorie ?></a>
                 </li>
             <?php
             }
@@ -31,11 +31,13 @@
                 $nom = $unJeu['jeu_nom'];
                 $etat = $unJeu['etat'];
                 $console = $unJeu['console_nom'];
+                $version = $unJeu['version'];
 
         ?>
                 <article>
                     <img src="public/images/jeux/<?= $image ?>" alt="Image de <?= $description; ?>" />
                     <p><b>Titre :</b> <?= $nom ?></p>
+                    <p><b>Version :</b> <?= $version ?></p>
                     <p><b>Console :</b> <?= $console ?></p>
                     <p><b>Etat du jeu :</b> <?= $etat ?></p>
                     <p><?= $description ?></p>

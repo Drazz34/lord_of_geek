@@ -2,7 +2,6 @@
 
 session_start();
 
-
 // Pour afficher les erreurs PHP
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
@@ -12,10 +11,19 @@ require("./util/fonctions.inc.php");
 require('./util/validateurs.inc.php');
 require("./App/modele/AccesDonnees.php");
 
+$clientSession = [];
 
 $uc = filter_input(INPUT_GET, 'uc'); // Use Case
 $action = filter_input(INPUT_GET, 'action'); // Action
 initPanier();
+
+if (!empty($_GET['redirect'])) {
+    $_SESSION['redirect'] = $_GET['redirect'];
+}
+
+if (!empty($_SESSION['client'])) {
+    $clientSession = $_SESSION['client'];
+}
 
 if (!$uc) {
     $uc = 'accueil';
@@ -32,7 +40,7 @@ switch ($uc) {
     case 'commander':
         include 'App/controleur/c_passerCommande.php';
         break;
-    case 'administrer' :
+    case 'compte' :
         include 'App/controleur/c_monCompte.php';
         break;
     case 'inscription' :

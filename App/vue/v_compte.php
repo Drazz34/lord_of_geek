@@ -26,32 +26,32 @@
             </tr>
         </tbody>
     </table>
-    <form method="POST" action=""> <!--action="index.php?uc=commander&action=confirmerCommande"-->
+    <form method="POST" action="index.php?uc=compte&action=changerProfil">
         <fieldset>
             <legend>Mon compte</legend>
             <p>
                 <label for="nom">Nom</label>
-                <input id="nom" type="text" name="nom" value="<?= $nom ?>" maxlength="90">
+                <input id="nom" type="text" name="nom" value="<?= $clientSession['nom'] ?>" maxlength="45">
             </p>
             <p>
                 <label for="prenom">Prenom</label>
-                <input id="prenom" type="text" name="prenom" value="<?= $prenom ?>" maxlength="90">
+                <input id="prenom" type="text" name="prenom" value="<?= $clientSession['prenom'] ?>" maxlength="45">
             </p>
             <p>
-                <label for="ville">Ville</label>
-                <input id="ville" type="text" name="ville"  value="<?= $ville ?>" maxlength="45">
+                <label for="ville">Rue</label>
+                <input id="rue" type="text" name="rue"  value="<?= $clientSession['adresse_rue'] ?>" maxlength="90">
             </p>
             <p>
                 <label for="cp">Code postal</label>
-                <input id="cp" type="text" name="cp" value="<?= $cp ?>" size="5" maxlength="5">
+                <input id="cp" type="text" name="cp" value="<?= $clientSession['cp'] ?>" size="5" maxlength="5">
             </p>
             <p>
-                <label for="rue">Rue</label>
-                <input id="rue" type="text" name="rue" value="<?= $rue ?>" maxlength="255">
+                <label for="rue">Ville</label>
+                <input id="ville" type="text" name="ville" value="<?= $clientSession['ville'] ?>" maxlength="90">
             </p>
             <p>
                 <label for="mail">Email </label>
-                <input id="mail" type="text"  name="mail" value="<?= $mail ?>" maxlength="100">
+                <input id="mail" type="text"  name="mail" value="<?= $clientSession['mail'] ?>" maxlength="100">
             </p> 
             <p>
                 <input type="submit" value="Valider" name="Valider">

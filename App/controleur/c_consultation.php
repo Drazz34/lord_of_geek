@@ -26,6 +26,9 @@ switch ($action) {
             afficheMessage("Ce jeu a été ajouté au panier");
         }
         break;
+    case 'voirCategories':
+        $lesJeux = M_Exemplaire::trouveTousLesJeux();
+        break;
     default:
         $lesJeux = M_Exemplaire::trouveTousLesJeux();
         break;

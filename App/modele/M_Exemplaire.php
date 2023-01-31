@@ -15,7 +15,7 @@ class M_Exemplaire {
      * @return un tableau associatif
      */
     public static function trouveLesJeuxDeCategorie($idCategorie) {
-        $req = "SELECT etat, jeux.nom AS jeu_nom, consoles.nom AS console_nom, exemplaires.id, exemplaires.description, etat_exemplaire_id, prix, image, categorie_id, jeux_id, consoles_id FROM exemplaires
+        $req = "SELECT etat, jeux.nom AS jeu_nom, jeux.version, consoles.nom AS console_nom, exemplaires.id, exemplaires.description, etat_exemplaire_id, prix, image, categorie_id, jeux_id, consoles_id FROM exemplaires
         JOIN etat_exemplaire ON exemplaires.etat_exemplaire_id = etat_exemplaire.id
         JOIN jeux ON exemplaires.jeux_id = jeux.id
         JOIN consoles ON consoles.id = exemplaires.consoles_id WHERE categorie_id = '$idCategorie'";
@@ -35,7 +35,7 @@ class M_Exemplaire {
         $lesProduits = array();
         if ($nbProduits != 0) {
             foreach ($desIdJeux as $unIdProduit) {
-                $req = "SELECT etat, jeux.nom AS jeu_nom, consoles.nom AS console_nom, exemplaires.id, exemplaires.description, etat_exemplaire_id, prix, image, categorie_id, jeux_id, consoles_id FROM exemplaires
+                $req = "SELECT etat, jeux.nom AS jeu_nom, jeux.version, consoles.nom AS console_nom, exemplaires.id, exemplaires.description, etat_exemplaire_id, prix, image, categorie_id, jeux_id, consoles_id FROM exemplaires
                 JOIN etat_exemplaire ON exemplaires.etat_exemplaire_id = etat_exemplaire.id
                 JOIN jeux ON exemplaires.jeux_id = jeux.id
                 JOIN consoles ON consoles.id = exemplaires.consoles_id WHERE exemplaires.id = '$unIdProduit'";
@@ -53,7 +53,7 @@ class M_Exemplaire {
      * @return le tableau associatif des jeux
      */
     public static function trouveTousLesJeux() {
-        $req = "SELECT etat, jeux.nom AS jeu_nom, consoles.nom AS console_nom, exemplaires.id, exemplaires.description, etat_exemplaire_id, prix, image, categorie_id, jeux_id, consoles_id FROM exemplaires
+        $req = "SELECT etat, jeux.nom AS jeu_nom, jeux.version, consoles.nom AS console_nom, exemplaires.id, exemplaires.description, etat_exemplaire_id, prix, image, categorie_id, jeux_id, consoles_id FROM exemplaires
         JOIN etat_exemplaire ON exemplaires.etat_exemplaire_id = etat_exemplaire.id
         JOIN jeux ON exemplaires.jeux_id = jeux.id
         JOIN consoles ON consoles.id = exemplaires.consoles_id";
@@ -61,17 +61,4 @@ class M_Exemplaire {
         $lesLignes = $res->fetchAll();
         return $lesLignes;
     }
-
-    // Je récupère le nom de chaque jeux
-// public function trouveJeuParId($idJeu)
-// {
-//     $query = AccesDonnees::getPdo()->prepare("SELECT nom FROM jeux WHERE id = :idJeu");
-//     $query->bindValue(':idJeu', $idJeu);
-//     $query->execute();
-//     $result = $query->fetch();
-//     $nom = $result['nom'];
-//     return $nom;
-// }
-    
-
 }
