@@ -6,4 +6,3 @@
         Le prince des jeux sur internet
     </h2>
 </section>
-

@@ -49,19 +49,25 @@ class M_Commande {
         }
     }
 
-    // public static function afficherCommandes($idClient) { //DISTINCT commandes.id
-    //     $pdo = Accesdonnees::getPdo();
-    //     $stmt = $pdo->prepare("SELECT exemplaires.description, exemplaires.prix, etat_exemplaire.etat, categories.nom 
-    //     FROM commandes 
-    //     JOIN lignes_commande ON lignes_commande.exemplaire_id = exemplaires.id
-    //     JOIN commandes ON commandes.id = lignes_commande.commande_id
-    //     JOIN client ON client.id = commandes.client_id
-    //     WHERE client.id = :clientId");
-    //     $stmt->bindParam(":clientId", $idClient);
-    //     $stmt->execute();
-    //     $lesCommandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    //     return $lesCommandes;
-    // }
+    // Affiche toutes les informations des jeux achetés par un client
+
+    public static function afficherCommandes($idClient) {
+        $pdo = Accesdonnees::getPdo();
+        $stmt = $pdo->prepare("SELECT jeux.nom AS jeux, jeux.version, consoles.nom AS console, etat_exemplaire.etat, categories.nom AS categorie, exemplaires.prix
+        FROM client
+        JOIN commandes ON commandes.client_id = client.id
+        JOIN lignes_commande ON lignes_commande.commande_id = commandes.id
+        JOIN exemplaires ON exemplaires.id = lignes_commande.exemplaire_id
+        JOIN jeux ON jeux.id = exemplaires.jeux_id
+        JOIN consoles ON consoles.id = exemplaires.consoles_id
+        JOIN etat_exemplaire ON etat_exemplaire.id = exemplaires.etat_exemplaire_id
+        JOIN categories ON categories.id = exemplaires.categorie_id
+        WHERE client.id = :clientId");
+        $stmt->bindParam(":clientId", $idClient);
+        $stmt->execute();
+        $lesCommandes = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        return $lesCommandes;
+    }
 
     /**
      * Retourne vrai si pas d'erreur

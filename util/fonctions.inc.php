@@ -91,6 +91,10 @@ function afficheErreurs(array $msgErreurs) {
     echo '</ul></div>';
 }
 
+function afficheErreur(string $msgErreur) {
+    echo '<div class="erreur"><ul>' . $msgErreur . '</ul></div>';
+}
+
 /**
  * Affiche un message bleu
  * @param string $msg

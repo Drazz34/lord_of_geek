@@ -16,9 +16,3 @@
             </p>
     </form>
 </section>
-
-<section id="logout">
-    <form action="index.php?uc=authentification&action=logoutClient" method="POST">
-        <input type="submit" value="Se déconnecter" name="deconnexion">
-    </form>
-</section>

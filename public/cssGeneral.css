@@ -131,3 +131,13 @@ input[type="submit"]
     width: 30%;
 }
 
+/* ---------- Tableau ----------------------------------------------------*/
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+}
+
+th {
+    background: #CCC;
+}

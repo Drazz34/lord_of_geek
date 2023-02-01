@@ -61,7 +61,7 @@ Prototype de Lord Of Geek (LOG)
                 include("App/vue/v_panier.php");
                 break;
             case 'commander':
-                include("App/vue/v_commande.php");
+                include("App/vue/v_accueil.php");
                 break;
             case 'inscription':
                 include("App/vue/v_inscription_client.php");

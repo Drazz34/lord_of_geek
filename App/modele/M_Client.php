@@ -46,6 +46,15 @@ class M_Client {
         return $client;
     }
 
+    // public static function trouverIdClient($idClient) {
+    //     $pdo = AccesDonnees::getPdo();
+    //     $stmt = $pdo->prepare("SELECT id FROM client WHERE prenom = :prenom");
+    //     $stmt->bindParam(":prenom", $idClient);
+    //     $stmt->execute();
+    //     $client = $stmt->fetch(PDO::FETCH_ASSOC);
+    //     return $client;
+    // }
+
     public static function trouverClientParIdentifiantEtMDP($identifiant, $password) {
         $pdo = AccesDonnees::getPdo();
         $stmt = $pdo->prepare("SELECT * FROM client WHERE identifiant = :identifiant");

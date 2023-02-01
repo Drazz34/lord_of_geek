@@ -17,10 +17,6 @@ $uc = filter_input(INPUT_GET, 'uc'); // Use Case
 $action = filter_input(INPUT_GET, 'action'); // Action
 initPanier();
 
-if (!empty($_GET['redirect'])) {
-    $_SESSION['redirect'] = $_GET['redirect'];
-}
-
 if (!empty($_SESSION['client'])) {
     $clientSession = $_SESSION['client'];
 }
@@ -38,6 +34,7 @@ switch ($uc) {
         include 'App/controleur/c_gestionPanier.php';
         break;
     case 'commander':
+        $idClient = filter_input(INPUT_GET, "idClient");
         include 'App/controleur/c_passerCommande.php';
         break;
     case 'compte' :

@@ -3,11 +3,11 @@
 include "App/modele/M_Commande.php";
 include "App/modele/M_Client.php";
 
-// $commandesClient = [];
+$commandesClient = [];
 
-// if (!empty($clientSession)) {
-//     $commandesClient = M_Commande::afficherCommandes($clientSession['id']);
-// }
+if (!empty($clientSession)) {
+    $commandesClient = M_Commande::afficherCommandes($clientSession['id']);
+}
 
 switch ($action) {
     case "changerProfil":

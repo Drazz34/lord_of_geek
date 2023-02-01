@@ -10,19 +10,11 @@ switch ($action) {
         $client = M_Client::trouverClientParIdentifiantEtMDP($identifiant, $password);
        
         if (!$client) {
-            afficheMessage("Entrez votre identifiant et votre mot de passe ou enregistrez-vous sur la page 'Inscription', merci !");
+            afficheErreur("Entrez votre identifiant et votre mot de passe ou enregistrez-vous sur la page 'Inscription', merci !");
         } else {
             $_SESSION['client'] = $client;
-        }
-
-        if (!empty($_SESSION['redirect'])) {
-            $redirect = $_SESSION['redirect'];
-            unset($_SESSION['redirect']);
-            header('Location: index.php?uc=' . $redirect['uc'] . '&action=' . $redirect['action']);
-            die();
-        } else {
+            supprimerPanier();
             header('Location: index.php');
-            die();
         }
         break;
 
