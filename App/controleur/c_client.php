@@ -23,10 +23,10 @@ switch ($action) {
 
         break;
 
-    case 'voirClient':
-        $id = filter_input(INPUT_GET, 'id');
-        $client = M_Client::trouverClientParId($id);
-        break;
+    // case 'voirClient':
+    //     $id = filter_input(INPUT_GET, 'id');
+    //     $client = M_Client::trouverClientParId($id);
+    //     break;
 
 
     default:

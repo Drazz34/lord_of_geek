@@ -92,7 +92,7 @@ function afficheErreurs(array $msgErreurs) {
 }
 
 function afficheErreur(string $msgErreur) {
-    echo '<div class="erreur"><ul>' . $msgErreur . '</ul></div>';
+    echo '<div class="erreur">' . $msgErreur . '</div>';
 }
 
 /**

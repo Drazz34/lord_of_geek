@@ -19,22 +19,11 @@ class M_Client {
         $stmt->bindParam(':ville', $ville);
         $stmt->bindParam(':mail', $mail);
         $stmt->execute();
-
-        // return $stmt->execute();
-    
-        // var_dump(AccesDonnees::getPdo()->errorInfo());
     }
     
-    public static function lastClient(){
-        $idClient = AccesDonnees::getPdo()->lastInsertId();
-        return $idClient;
-    }
-
-    // public static function trouverClientParId($idClient){
-    //     $req = "select * from client where id = '$idClient'";
-    //     $res = AccesDonnees::query($req);
-    //     $client = $res->fetch(PDO::FETCH_ASSOC);
-    //     return $client;
+    // public static function lastClient(){
+    //     $idClient = AccesDonnees::getPdo()->lastInsertId();
+    //     return $idClient;
     // }
 
     public static function trouverClientParId($idClient) {
@@ -45,15 +34,6 @@ class M_Client {
         $client = $stmt->fetch(PDO::FETCH_ASSOC);
         return $client;
     }
-
-    // public static function trouverIdClient($idClient) {
-    //     $pdo = AccesDonnees::getPdo();
-    //     $stmt = $pdo->prepare("SELECT id FROM client WHERE prenom = :prenom");
-    //     $stmt->bindParam(":prenom", $idClient);
-    //     $stmt->execute();
-    //     $client = $stmt->fetch(PDO::FETCH_ASSOC);
-    //     return $client;
-    // }
 
     public static function trouverClientParIdentifiantEtMDP($identifiant, $password) {
         $pdo = AccesDonnees::getPdo();

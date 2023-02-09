@@ -10,6 +10,7 @@
         <table class="commandes">
             <thead>
                 <tr>
+                    <th>Num. Com.</th>
                     <th>Jeu</th>
                     <th>Version</th>
                     <th>Console</th>
