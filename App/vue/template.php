@@ -5,7 +5,7 @@ Prototype de Lord Of Geek (LOG)
 <html>
 
 <head>
-    <title>Lord Of Geek 2022</title>
+    <title>Lord Of Geek 2023</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="public/cssGeneral.css" rel="stylesheet" type="text/css">
     <meta charset="UTF-8">
