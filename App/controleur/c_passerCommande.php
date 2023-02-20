@@ -1,6 +1,6 @@
 <?php
 
-include 'App/modele/M_commande.php';
+include 'App/modele/M_Commande.php';
 
 /**
  * Controleur pour les commandes

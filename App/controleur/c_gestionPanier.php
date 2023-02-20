@@ -1,5 +1,5 @@
 ﻿<?php
-include 'App/modele/M_exemplaire.php';
+include 'App/modele/M_Exemplaire.php';
 /**
  * Controleur pour la gestion du panier
  * @author Loic LOG
