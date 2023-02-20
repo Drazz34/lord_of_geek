@@ -22,6 +22,7 @@ class AccesDonnees {
     private static $user = 'root';
     private static $mdp = 'Mysql5*';
 
+    
     /**
      *
      * @var PDO

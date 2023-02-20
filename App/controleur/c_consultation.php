@@ -1,6 +1,6 @@
 ﻿<?php
-include 'App/modele/M_categorie.php';
-include 'App/modele/M_exemplaire.php';
+include 'App/modele/M_Categorie.php';
+include 'App/modele/M_Exemplaire.php';
 
 $categorie = null;
 
